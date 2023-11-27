@@ -1,10 +1,16 @@
+// added the missing imports for BufferedWriter and FileWriter and IOException that are required for the code to work.(Firas Bukhari 2140472)
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class SensorDataProcessor {
     // Senson data and limits.
     public double[][][] data;
     public double[][] limit;
 
     // constructor
-    public DataProcessor(double[][][] data, double[][] limit) {
+    //The class name in the code is SensorDataProcessor, but the constructor name is DataProcessor so i changed it to SensorDataProcessor to match the class name.(Firas Bukhari 2140472)
+    public SensorDataProcessor(double[][][] data, double[][] limit) {
         this.data = data;
         this.limit = limit;
     }
@@ -24,7 +30,7 @@ public class SensorDataProcessor {
 
         int i, j, k = 0;
         double[][][] data2 = new
-    double[data.length][data[0].length][data[0][0].length];
+        double[data.length][data[0].length][data[0][0].length];
 
 
         BufferedWriter out;
