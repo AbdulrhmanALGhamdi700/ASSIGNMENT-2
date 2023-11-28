@@ -50,13 +50,12 @@ public class SensorDataProcessor {
                 }
             }
 
-            for (i = 0; i < data2.length; i++) {
-                for (j = 0; j < data2[0].length; j++) {
-                    out.write(data2[i][j] + "\t");
-                }
-            }
-
-            out.close();
+         for (double[][] row : data2) {
+             for (double[] col : row) {
+                out.write(arrayToString(col) + "\t");
+              }
+               out.newLine();
+        }
 
         } catch (Exception e) {
             System.out.println("Error= " + e);
