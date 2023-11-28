@@ -11,21 +11,18 @@ public class SensorDataProcessor {
 
     // calculates average of sensor data
     private double average(double[] array) {
-        int i = 0;
-        double val = 0;
-        for (i = 0; i < array.length; i++) {
-            val += array[i];
+        double total = 0;
+        for (int i = 0; i < array.length; i++) {
+            total += array[i];
         }
-        return val / array.length;
+        return total / array.length;
     }
 
     // calculate data
     public void calculate(double d) {
 
         int i, j, k = 0;
-        double[][][] data2 = new
-    double[data.length][data[0].length][data[0][0].length];
-
+        double[][][] data2 = new double[data.length][data[0].length][data[0][0].length];
 
         BufferedWriter out;
 
@@ -63,3 +60,5 @@ public class SensorDataProcessor {
         }
     }
 }
+
+
