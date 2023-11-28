@@ -22,11 +22,12 @@ public class SensorDataProcessor {
     // calculate data
     public void calculate(double d) {
 
-        int i, j, k = 0;
-        double[][][] data2 = new
-    double[data.length][data[0].length][data[0][0].length];
+        int i = 0;
+        int j = 0;
+        int k = 0;
 
-
+        double[][][] data2 = new double[data.length][data[0].length][data[0][0].length];
+        
         BufferedWriter out;
 
         // Write racing stats data into a file
