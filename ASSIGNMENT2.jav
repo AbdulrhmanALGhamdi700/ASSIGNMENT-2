@@ -1,16 +1,16 @@
 public class SensorDataProcessor {
-    // Senson data and limits.
+    // Sensor data and limits.
     public double[][][] data;
     public double[][] limit;
 
     // constructor
-    public DataProcessor(double[][][] data, double[][] limit) {
+    public SensorDataProcessor(double[][][] data, double[][] limit) {
         this.data = data;
         this.limit = limit;
     }
 
     // calculates average of sensor data
-    private double average(double[] array) {
+    private double calculateAverage(double[] array) {
         int i = 0;
         double val = 0;
         for (i = 0; i < array.length; i++) {
@@ -19,46 +19,50 @@ public class SensorDataProcessor {
         return val / array.length;
     }
 
-    // calculate data
-    public void calculate(double d) {
+    // process data
+    public void process(double divisor) {
 
         int i, j, k = 0;
-        double[][][] data2 = new
-    double[data.length][data[0].length][data[0][0].length];
+        double[][][] processedData = new double[data.length][data[0].length][data[0][0].length];
 
 
         BufferedWriter out;
 
-        // Write racing stats data into a file
+        // Write processed data into a file
         try {
-            out = new BufferedWriter(new FileWriter("RacingStatsData.txt"));
+            out = new BufferedWriter(new FileWriter("processed_data.txt"));
 
             for (i = 0; i < data.length; i++) {
                 for (j = 0; j < data[0].length; j++) {
                     for (k = 0; k < data[0][0].length; k++) {
-                        data2[i][j][k] = data[i][j][k] / d -Math.pow(limit[i][j], 2.0);
+                        processedData[i][j][k] = data[i][j][k] / divisor - Math.pow(limit[i][j], 2.0);
 
-                        if (average(data2[i][j]) > 10 && average(data2[i][j])< 50)
+                        if (calculateAverage(processedData[i][j]) > 10 && calculateAverage(processedData[i][j]) < 50)
                             break;
-                        else if (Math.max(data[i][j][k], data2[i][j][k]) >data[i][j][k])
+                        else if (Math.max(data[i][j][k], processedData[i][j][k]) > data[i][j][k])
                             break;
-                        else if (Math.pow(Math.abs(data[i][j][k]), 3) <Math.pow(Math.abs(data2[i][j][k]), 3)
-                            && average(data[i][j]) < data2[i][j][k] && (i + 1)* (j + 1) > 0)data2[i][j][k] *= 2;
+                        else if (Math.pow(Math.abs(data[i][j][k]), 3) < Math.pow(Math.abs(processedData[i][j][k]), 3)
+                                && calculateAverage(data[i][j]) < processedData[i][j][k] && (i + 1) * (j + 1) > 0)
+                            processedData[i][j][k] *= 2;
                         else
                             continue;
                     }
                 }
             }
 
-         for (double[][] row : data2) {
-             for (double[] col : row) {
-                out.write(arrayToString(col) + "\t");
-              }
-               out.newLine();
-        }
+            for (i = 0; i < processedData.length; i++) {
+                for (j = 0; j < processedData[0].length; j++) {
+                    for (k = 0; k < processedData[0][0].length; k++) {
+                        out.write(processedData[i][j][k] + "\t");
+                    }
+                    out.newLine();
+                }
+            }
+
+            out.close();
 
         } catch (Exception e) {
-            System.out.println("Error= " + e);
+            System.out.println("Error: " + e);
         }
     }
 }
