@@ -1,6 +1,4 @@
 # ASSIGNMENT-2
-From Students:
+From Student:
 1- Abdulrhman ALGhamdi 2140786
-2- Firas Bukhari 2140472
-3- Omar ALzhrani 
-4- Abdulhadi Alqahtani 2140472
+reduce the time taken for the loob to write the Array by /2
