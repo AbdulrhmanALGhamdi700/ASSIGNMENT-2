@@ -9,14 +9,15 @@ public class SensorDataProcessor {
         this.limit = limit;
     }
 
-    // calculates average of sensor data
-    private double average(double[] array) {
-        double total = 0;
-        for (int i = 0; i < array.length; i++) {
-            total += array[i];
-        }
-        return total / array.length;
-    }
+    // calculate data
+    public void calculate(double d) {
+
+        int i, j, k = 0;
+        double[][][] data2 = new
+    double[data.length][data[0].length][data[0][0].length];
+
+
+        BufferedWriter out;
 
     // calculate data
     public void calculate(double d) {
