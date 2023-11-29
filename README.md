@@ -1,6 +1,4 @@
 # ASSIGNMENT-2
-From Students:
-1- Abdulrhman ALGhamdi 2140786
-2- Firas Bukhari 2140472
-3- Omar ALzhrani 
-4- Abdulhadi Alqahtani 2140472
+From Student:
+- Omar ALzhrani-2140113
+- Refactor: average method - 1-change variable name (val) to total 2- move the variable (i) into the loop
