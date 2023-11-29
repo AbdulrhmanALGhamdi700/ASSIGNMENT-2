@@ -1,6 +1,4 @@
 # ASSIGNMENT-2
-From Students:
-1- Abdulrhman ALGhamdi 2140786
-2- Firas Bukhari 2140472
-3- Omar ALzhrani 
-4- Abdulhadi Alqahtani 2140472
+From Student:
+- Abdulhadi Alqahtani 2141731
+- In calculate method refactor the variable i,j,k that was on one line and separated them from each other. And data2 variable delete the new line
